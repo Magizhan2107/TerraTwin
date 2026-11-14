@@ -1,0 +1,15 @@
+{
+    "planet": "Mars",
+    "location": "Gale Crater region",
+    "latitude": -4.6,
+    "longitude": 137.4,
+    "analysis_radius_m": 5000,
+    "pixel_spacing_x_m": 461.56610214202516,
+    "pixel_spacing_y_m": 463.05766716974557,
+    "mean_elevation_m": -4467.739837398374,
+    "elevation_stddev_m": 31.0848691169348,
+    "mean_slope_deg": 1.0764982618642351,
+    "p90_slope_deg": 3.026459086163068,
+    "roughness_mean_m": 7.753597002312688,
+    "valid_pixels": 369
+}
