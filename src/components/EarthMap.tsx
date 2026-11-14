@@ -21,6 +21,15 @@ function mapCandidates(results: AnalysisResult[]) {
 }
 function Focus({ candidates, selected }: { candidates: ReturnType<typeof mapCandidates>; selected?: AnalysisResult }) {
  const map = useMap();
+ useEffect(() => {
+  let frame = 0;
+  const observer = new ResizeObserver(() => {
+   cancelAnimationFrame(frame);
+   frame = requestAnimationFrame(() => map.invalidateSize({ pan: false }));
+  });
+  observer.observe(map.getContainer());
+  return () => { observer.disconnect(); cancelAnimationFrame(frame); };
+ }, [map]);
  const previous = useRef<{ candidates: typeof candidates; selectedId?: string } | null>(null);
  useEffect(() => {
   if (previous.current?.candidates !== candidates) {
