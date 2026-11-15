@@ -324,3 +324,38 @@ td:first-child { color: #d6e0ec; white-space: normal; line-height: 1.6; }
 .thermal-table caption { text-align: left; padding: 12px 16px; font-size: 13px; line-height: 1.6; color: #a8bacd; }
 .thermal-periods > summary { cursor: pointer; padding: 18px 20px; font-size: 14px; line-height: 1.6; }
 @container (max-width: 700px) { .thermal-observation-grid { grid-template-columns: minmax(0, 1fr); padding: 14px; } }
+
+/* Thermal presentation stays scoped to the read-only evidence module. */
+.thermal-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+.thermal-overview article { min-width: 0; padding: 18px; border: 1px solid #303d4b; border-radius: 8px; background: #111821; }
+.thermal-body-label { color: #f18258; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.thermal-overview h4 { color: #edf3fa; font-size: 18px; margin: 10px 0 8px; }
+.thermal-overview p, .thermal-overview small { color: #bdcddd; font-size: 13px; line-height: 1.65; }
+.thermal-overview small { display: block; margin-top: 10px; color: #a8bacd; }
+.thermal-evidence > .comparison { margin-top: 20px; }
+.thermal-evidence .panel-heading { gap: 16px; flex-wrap: wrap; }
+.thermal-evidence .panel-heading p { line-height: 1.6; margin-top: 6px; }
+.thermal-evidence .thermal-validation { background: #142a27; border-left: 3px solid #65c9ad; }
+.thermal-validation strong { color: #8ee4c9; font-size: 19px; }
+.thermal-evidence .thermal-limitation { background: #30251c; border-left: 3px solid #f18258; }
+.thermal-observation .thermal-temperature { font-size: 36px; line-height: 1.3; margin: 14px 0 20px; }
+.thermal-card-details { margin-top: 12px; border-top: 1px solid #303d4b; padding-top: 14px; }
+.thermal-card-details summary { cursor: pointer; color: #bdcddd; font-size: 13px; line-height: 1.6; }
+.thermal-card-details .secondary { margin-top: 6px; font-size: 12px; }
+.thermal-evidence .thermal-periods { border-top: 1px solid #303d4b; }
+.thermal-evidence summary:focus-visible { outline: 2px solid #f18258; outline-offset: -3px; }
+.thermal-profile { min-width: 0; margin: 0; padding: 4px 20px 20px; }
+.thermal-profile figcaption { display: grid; gap: 6px; padding: 8px 0 18px; }
+.thermal-profile figcaption strong { font-size: 18px; color: #edf3fa; }
+.thermal-profile figcaption span, .thermal-profile > p { color: #a8bacd; font-size: 13px; line-height: 1.7; }
+.thermal-chart { height: 310px; width: 100%; min-width: 0; font-size: 12px; }
+.thermal-tooltip { max-width: 300px; padding: 12px; background: #111821; border: 1px solid #526478; border-radius: 6px; color: #edf3fa; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.thermal-tooltip p { margin: 4px 0; }
+.thermal-tooltip small { color: #bdcddd; }
+@container (max-width: 700px) {
+ .thermal-overview { grid-template-columns: minmax(0, 1fr); }
+ .thermal-overview article { padding: 14px 18px; }
+ .thermal-overview h4 { margin-top: 6px; }
+ .thermal-profile { padding: 4px 10px 16px; }
+ .thermal-chart { height: 280px; }
+}
