@@ -1,0 +1,24 @@
+{
+  "project": "TerraTwin",
+  "dataset": "Lunar Diviner polar thermal profiles",
+  "scope": "Four polar sites, two seasons, 96 local-time bins",
+  "records": 768,
+  "valid_bins": 719,
+  "empty_bins": 49,
+  "validation": "Step 27 saved-output consistency audit passed",
+  "scientific_validation": "Further source-level validation pending",
+  "files": {
+    "terratwin_moon_4_polar_profiles.csv": {
+      "bytes": 97424,
+      "sha256": "c4b7e04a1a5bf77a4680b65cf2c5629d3fd2839463a6be934ce72767744c4869"
+    },
+    "terratwin_moon_4_polar_profiles.json": {
+      "bytes": 294527,
+      "sha256": "8df851838eb08485a6d9e0b132b4b9e2fe19cb292e0fad198e8ff9644efe5d55"
+    },
+    "polar_coverage_summary.csv": {
+      "bytes": 267,
+      "sha256": "f599f5673570d213a57f7401cd9f5b6c1ab8f8d0260e23d2766dd94c4c5ee752"
+    }
+  }
+}

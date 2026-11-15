@@ -1,0 +1,1348 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:terratwin:thermal-cloud:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "earth-thermal-cloud/1.0.0"
+    },
+    "configuration": {
+      "type": "object"
+    },
+    "script_sha256": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cloud_rules.py": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "cloud_aggregate.py": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "cloud_contract.py": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "cloud_compare.py": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "cloud_pilot.py": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "common.py": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "cloud_rules.py",
+        "cloud_aggregate.py",
+        "cloud_contract.py",
+        "cloud_compare.py",
+        "cloud_pilot.py",
+        "common.py"
+      ]
+    },
+    "records": {
+      "type": "array",
+      "minItems": 13,
+      "maxItems": 13,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schema_version": {
+                "const": "earth-thermal-cloud/1.0.0"
+              },
+              "pipeline_version": {
+                "const": "native-centre-cloud/1.0.0"
+              },
+              "location_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "planet": {
+                "const": "Earth"
+              },
+              "canonical_latitude": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              },
+              "canonical_longitude": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "period": {
+                "type": "string",
+                "pattern": "^202[123](-[01][0-9])?$"
+              },
+              "period_type": {
+                "enum": [
+                  "month",
+                  "year"
+                ]
+              },
+              "run_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "dataset_id": {
+                "const": "MODIS/061/MYD11A1"
+              },
+              "source_product_version": {
+                "const": "061"
+              },
+              "footprint_radius_m": {
+                "const": 5000
+              },
+              "native_grid": {
+                "type": "string",
+                "minLength": 1
+              },
+              "grid_transform_wkt": {
+                "type": "string",
+                "minLength": 1
+              },
+              "native_centres": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "sampled_centre_area_m2": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "requested_footprint_area_m2": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "threshold_status": {
+                "const": "provisional_diagnostic_only"
+              },
+              "mission_suitability": {
+                "const": "not_assessed"
+              },
+              "calendar_dates": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "status_reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "catalog_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "config_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "pipeline_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "source_product_dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "missing_product_dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pixel_date_records": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "joint_pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "joint_dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "joint_supported_dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__supported_dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_valid__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_valid__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_valid__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__mandatory_produced__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__mandatory_produced__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__mandatory_produced__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__mandatory_good__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__mandatory_good__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__mandatory_good__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__data_quality_good__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__data_quality_good__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__data_quality_good__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__emissivity_error_le_0_01__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__emissivity_error_le_0_01__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__emissivity_error_le_0_01__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_error_le_1k__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_error_le_1k__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_error_le_1k__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_valid__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_valid__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_valid__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__phase_window__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__phase_window__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__phase_window__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa_with_time__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa_with_time__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa_with_time__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa_with_time__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa_with_time__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa_with_time__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa_in_phase__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa_in_phase__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__strict_qa_in_phase__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa_in_phase__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa_in_phase__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__relaxed_qa_in_phase__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_band_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_band_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__lst_band_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_band_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_band_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_band_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_band_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_band_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_band_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_missing__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_missing__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_missing__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_valid__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_valid__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__qc_valid__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_missing__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_missing__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_missing__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_interpretable__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_interpretable__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "day__time_interpretable__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__supported_dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_valid__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_valid__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_valid__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__mandatory_produced__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__mandatory_produced__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__mandatory_produced__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__mandatory_good__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__mandatory_good__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__mandatory_good__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__data_quality_good__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__data_quality_good__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__data_quality_good__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__emissivity_error_le_0_01__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__emissivity_error_le_0_01__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__emissivity_error_le_0_01__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_error_le_1k__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_error_le_1k__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_error_le_1k__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_valid__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_valid__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_valid__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__phase_window__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__phase_window__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__phase_window__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa_with_time__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa_with_time__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa_with_time__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa_with_time__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa_with_time__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa_with_time__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa_in_phase__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa_in_phase__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__strict_qa_in_phase__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa_in_phase__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa_in_phase__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__relaxed_qa_in_phase__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_band_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_band_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__lst_band_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_band_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_band_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_band_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_band_present__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_band_present__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_band_present__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_missing__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_missing__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_missing__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_valid__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_valid__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__qc_valid__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_missing__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_missing__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_missing__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_interpretable__pixels": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_interpretable__dates": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "night__time_interpretable__centres": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "source_date_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "joint_mean_calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__supported_calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__lst_valid__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__qc_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__mandatory_produced__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__mandatory_good__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__data_quality_good__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__emissivity_error_le_0_01__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__lst_error_le_1k__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__time_valid__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__phase_window__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__strict_qa__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__relaxed_qa__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__strict_qa_with_time__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__relaxed_qa_with_time__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__strict_qa_in_phase__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__relaxed_qa_in_phase__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__lst_band_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__qc_band_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__time_band_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__qc_missing__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__qc_valid__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__time_missing__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "day__time_interpretable__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__supported_calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__lst_valid__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__qc_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__mandatory_produced__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__mandatory_good__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__data_quality_good__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__emissivity_error_le_0_01__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__lst_error_le_1k__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__time_valid__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__phase_window__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__strict_qa__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__relaxed_qa__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__strict_qa_with_time__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__relaxed_qa_with_time__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__strict_qa_in_phase__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__relaxed_qa_in_phase__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__lst_band_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__qc_band_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__time_band_present__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__qc_missing__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__qc_valid__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__time_missing__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "night__time_interpretable__calendar_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "source_image_ids": {
+                "type": "string"
+              },
+              "source_product_dates_list": {
+                "type": "string"
+              },
+              "coverage_screen": {
+                "enum": [
+                  "not_evaluated_year",
+                  "meets_exploratory_screen",
+                  "below_exploratory_screen"
+                ]
+              },
+              "unknown_qc_present": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "status": {
+                "enum": [
+                  "data_available",
+                  "no_eligible_observations",
+                  "insufficient_coverage"
+                ]
+              }
+            },
+            "required": [
+              "schema_version",
+              "pipeline_version",
+              "location_id",
+              "name",
+              "planet",
+              "canonical_latitude",
+              "canonical_longitude",
+              "period",
+              "period_type",
+              "run_id",
+              "dataset_id",
+              "source_product_version",
+              "footprint_radius_m",
+              "native_grid",
+              "grid_transform_wkt",
+              "native_centres",
+              "sampled_centre_area_m2",
+              "requested_footprint_area_m2",
+              "threshold_status",
+              "mission_suitability",
+              "calendar_dates",
+              "status_reason",
+              "catalog_sha256",
+              "config_sha256",
+              "pipeline_sha256",
+              "source_product_dates",
+              "missing_product_dates",
+              "pixel_date_records",
+              "joint_pixels",
+              "joint_dates",
+              "joint_supported_dates",
+              "day__supported_dates",
+              "day__lst_valid__pixels",
+              "day__lst_valid__dates",
+              "day__lst_valid__centres",
+              "day__qc_present__pixels",
+              "day__qc_present__dates",
+              "day__qc_present__centres",
+              "day__mandatory_produced__pixels",
+              "day__mandatory_produced__dates",
+              "day__mandatory_produced__centres",
+              "day__mandatory_good__pixels",
+              "day__mandatory_good__dates",
+              "day__mandatory_good__centres",
+              "day__data_quality_good__pixels",
+              "day__data_quality_good__dates",
+              "day__data_quality_good__centres",
+              "day__emissivity_error_le_0_01__pixels",
+              "day__emissivity_error_le_0_01__dates",
+              "day__emissivity_error_le_0_01__centres",
+              "day__lst_error_le_1k__pixels",
+              "day__lst_error_le_1k__dates",
+              "day__lst_error_le_1k__centres",
+              "day__time_valid__pixels",
+              "day__time_valid__dates",
+              "day__time_valid__centres",
+              "day__phase_window__pixels",
+              "day__phase_window__dates",
+              "day__phase_window__centres",
+              "day__strict_qa__pixels",
+              "day__strict_qa__dates",
+              "day__strict_qa__centres",
+              "day__relaxed_qa__pixels",
+              "day__relaxed_qa__dates",
+              "day__relaxed_qa__centres",
+              "day__strict_qa_with_time__pixels",
+              "day__strict_qa_with_time__dates",
+              "day__strict_qa_with_time__centres",
+              "day__relaxed_qa_with_time__pixels",
+              "day__relaxed_qa_with_time__dates",
+              "day__relaxed_qa_with_time__centres",
+              "day__strict_qa_in_phase__pixels",
+              "day__strict_qa_in_phase__dates",
+              "day__strict_qa_in_phase__centres",
+              "day__relaxed_qa_in_phase__pixels",
+              "day__relaxed_qa_in_phase__dates",
+              "day__relaxed_qa_in_phase__centres",
+              "day__lst_band_present__pixels",
+              "day__lst_band_present__dates",
+              "day__lst_band_present__centres",
+              "day__qc_band_present__pixels",
+              "day__qc_band_present__dates",
+              "day__qc_band_present__centres",
+              "day__time_band_present__pixels",
+              "day__time_band_present__dates",
+              "day__time_band_present__centres",
+              "day__qc_missing__pixels",
+              "day__qc_missing__dates",
+              "day__qc_missing__centres",
+              "day__qc_valid__pixels",
+              "day__qc_valid__dates",
+              "day__qc_valid__centres",
+              "day__time_missing__pixels",
+              "day__time_missing__dates",
+              "day__time_missing__centres",
+              "day__time_interpretable__pixels",
+              "day__time_interpretable__dates",
+              "day__time_interpretable__centres",
+              "night__supported_dates",
+              "night__lst_valid__pixels",
+              "night__lst_valid__dates",
+              "night__lst_valid__centres",
+              "night__qc_present__pixels",
+              "night__qc_present__dates",
+              "night__qc_present__centres",
+              "night__mandatory_produced__pixels",
+              "night__mandatory_produced__dates",
+              "night__mandatory_produced__centres",
+              "night__mandatory_good__pixels",
+              "night__mandatory_good__dates",
+              "night__mandatory_good__centres",
+              "night__data_quality_good__pixels",
+              "night__data_quality_good__dates",
+              "night__data_quality_good__centres",
+              "night__emissivity_error_le_0_01__pixels",
+              "night__emissivity_error_le_0_01__dates",
+              "night__emissivity_error_le_0_01__centres",
+              "night__lst_error_le_1k__pixels",
+              "night__lst_error_le_1k__dates",
+              "night__lst_error_le_1k__centres",
+              "night__time_valid__pixels",
+              "night__time_valid__dates",
+              "night__time_valid__centres",
+              "night__phase_window__pixels",
+              "night__phase_window__dates",
+              "night__phase_window__centres",
+              "night__strict_qa__pixels",
+              "night__strict_qa__dates",
+              "night__strict_qa__centres",
+              "night__relaxed_qa__pixels",
+              "night__relaxed_qa__dates",
+              "night__relaxed_qa__centres",
+              "night__strict_qa_with_time__pixels",
+              "night__strict_qa_with_time__dates",
+              "night__strict_qa_with_time__centres",
+              "night__relaxed_qa_with_time__pixels",
+              "night__relaxed_qa_with_time__dates",
+              "night__relaxed_qa_with_time__centres",
+              "night__strict_qa_in_phase__pixels",
+              "night__strict_qa_in_phase__dates",
+              "night__strict_qa_in_phase__centres",
+              "night__relaxed_qa_in_phase__pixels",
+              "night__relaxed_qa_in_phase__dates",
+              "night__relaxed_qa_in_phase__centres",
+              "night__lst_band_present__pixels",
+              "night__lst_band_present__dates",
+              "night__lst_band_present__centres",
+              "night__qc_band_present__pixels",
+              "night__qc_band_present__dates",
+              "night__qc_band_present__centres",
+              "night__time_band_present__pixels",
+              "night__time_band_present__dates",
+              "night__time_band_present__centres",
+              "night__qc_missing__pixels",
+              "night__qc_missing__dates",
+              "night__qc_missing__centres",
+              "night__qc_valid__pixels",
+              "night__qc_valid__dates",
+              "night__qc_valid__centres",
+              "night__time_missing__pixels",
+              "night__time_missing__dates",
+              "night__time_missing__centres",
+              "night__time_interpretable__pixels",
+              "night__time_interpretable__dates",
+              "night__time_interpretable__centres",
+              "source_date_fraction",
+              "joint_mean_calendar_fraction",
+              "day__supported_calendar_fraction",
+              "day__lst_valid__calendar_fraction",
+              "day__qc_present__calendar_fraction",
+              "day__mandatory_produced__calendar_fraction",
+              "day__mandatory_good__calendar_fraction",
+              "day__data_quality_good__calendar_fraction",
+              "day__emissivity_error_le_0_01__calendar_fraction",
+              "day__lst_error_le_1k__calendar_fraction",
+              "day__time_valid__calendar_fraction",
+              "day__phase_window__calendar_fraction",
+              "day__strict_qa__calendar_fraction",
+              "day__relaxed_qa__calendar_fraction",
+              "day__strict_qa_with_time__calendar_fraction",
+              "day__relaxed_qa_with_time__calendar_fraction",
+              "day__strict_qa_in_phase__calendar_fraction",
+              "day__relaxed_qa_in_phase__calendar_fraction",
+              "day__lst_band_present__calendar_fraction",
+              "day__qc_band_present__calendar_fraction",
+              "day__time_band_present__calendar_fraction",
+              "day__qc_missing__calendar_fraction",
+              "day__qc_valid__calendar_fraction",
+              "day__time_missing__calendar_fraction",
+              "day__time_interpretable__calendar_fraction",
+              "night__supported_calendar_fraction",
+              "night__lst_valid__calendar_fraction",
+              "night__qc_present__calendar_fraction",
+              "night__mandatory_produced__calendar_fraction",
+              "night__mandatory_good__calendar_fraction",
+              "night__data_quality_good__calendar_fraction",
+              "night__emissivity_error_le_0_01__calendar_fraction",
+              "night__lst_error_le_1k__calendar_fraction",
+              "night__time_valid__calendar_fraction",
+              "night__phase_window__calendar_fraction",
+              "night__strict_qa__calendar_fraction",
+              "night__relaxed_qa__calendar_fraction",
+              "night__strict_qa_with_time__calendar_fraction",
+              "night__relaxed_qa_with_time__calendar_fraction",
+              "night__strict_qa_in_phase__calendar_fraction",
+              "night__relaxed_qa_in_phase__calendar_fraction",
+              "night__lst_band_present__calendar_fraction",
+              "night__qc_band_present__calendar_fraction",
+              "night__time_band_present__calendar_fraction",
+              "night__qc_missing__calendar_fraction",
+              "night__qc_valid__calendar_fraction",
+              "night__time_missing__calendar_fraction",
+              "night__time_interpretable__calendar_fraction",
+              "source_image_ids",
+              "source_product_dates_list",
+              "coverage_screen",
+              "unknown_qc_present",
+              "status"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schema_version": {
+                "const": "earth-thermal-cloud/1.0.0"
+              },
+              "pipeline_version": {
+                "const": "native-centre-cloud/1.0.0"
+              },
+              "location_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "planet": {
+                "const": "Earth"
+              },
+              "canonical_latitude": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              },
+              "canonical_longitude": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "period": {
+                "type": "string",
+                "pattern": "^202[123](-[01][0-9])?$"
+              },
+              "period_type": {
+                "enum": [
+                  "month",
+                  "year"
+                ]
+              },
+              "run_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "dataset_id": {
+                "const": "MODIS/061/MYD11A1"
+              },
+              "source_product_version": {
+                "const": "061"
+              },
+              "footprint_radius_m": {
+                "const": 5000
+              },
+              "native_grid": {
+                "type": "string",
+                "minLength": 1
+              },
+              "grid_transform_wkt": {
+                "type": "string",
+                "minLength": 1
+              },
+              "native_centres": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "sampled_centre_area_m2": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "requested_footprint_area_m2": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "threshold_status": {
+                "const": "provisional_diagnostic_only"
+              },
+              "mission_suitability": {
+                "const": "not_assessed"
+              },
+              "calendar_dates": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "status_reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "catalog_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "config_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "pipeline_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "status": {
+                "enum": [
+                  "not_processed",
+                  "processing_failure"
+                ]
+              }
+            },
+            "required": [
+              "schema_version",
+              "pipeline_version",
+              "location_id",
+              "name",
+              "planet",
+              "canonical_latitude",
+              "canonical_longitude",
+              "period",
+              "period_type",
+              "run_id",
+              "dataset_id",
+              "source_product_version",
+              "footprint_radius_m",
+              "native_grid",
+              "grid_transform_wkt",
+              "native_centres",
+              "sampled_centre_area_m2",
+              "requested_footprint_area_m2",
+              "threshold_status",
+              "mission_suitability",
+              "calendar_dates",
+              "status_reason",
+              "catalog_sha256",
+              "config_sha256",
+              "pipeline_sha256",
+              "status"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "configuration",
+    "script_sha256",
+    "records"
+  ]
+}

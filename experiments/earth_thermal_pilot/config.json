@@ -1,0 +1,22 @@
+{
+  "schema_version": "earth-thermal-availability-config/1.0.0",
+  "dataset_id": "MODIS/061/MYD11A1",
+  "canonical_geojson": "../../public/data/earth_terrain_harmonized.geojson",
+  "location_ids": ["24", "73", "122", "220", "269", "318", "367", "465", "661", "710"],
+  "start_date": "2021-01-01",
+  "end_date_exclusive": "2024-01-01",
+  "footprint_radius_m": 5000,
+  "geometry_max_error_m": 1,
+  "phase_windows_hours": {
+    "day": [13, 15],
+    "night": [1, 3]
+  },
+  "exploratory_monthly_thresholds": {
+    "strict_qa_phase_dates_min": 10,
+    "strict_qa_phase_date_fraction_min": 0.5,
+    "same_product_date_spatial_support_fraction_min": 0.8
+  },
+  "threshold_status": "provisional_diagnostic_only",
+  "export_tile_scale": 4,
+  "masked_sentinel": -9999
+}

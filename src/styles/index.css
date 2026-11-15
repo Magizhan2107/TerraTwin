@@ -299,3 +299,28 @@ td:first-child { color: #d6e0ec; white-space: normal; line-height: 1.6; }
 @media (prefers-reduced-motion: reduce) {
  * { scroll-behavior: auto!important; animation: none!important; transition: none!important; }
 }
+
+/* Read-only thermal evidence: reuse dashboard panels and keep wide tables contained. */
+.thermal-evidence { min-width: 0; }
+.thermal-evidence .demo-banner p + p { margin-top: 8px; }
+.thermal-evidence .panel-heading h4 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.thermal-message { padding: 18px 20px; display: grid; gap: 12px; font-size: 14px; line-height: 1.7; color: #bdcddd; overflow-wrap: anywhere; }
+.thermal-message > .secondary { justify-self: start; }
+.thermal-message .select-wrap { max-width: 360px; }
+.thermal-observation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; padding: 20px; }
+.thermal-observation { min-width: 0; background: #111821; border: 1px solid #29323e; border-radius: 6px; padding: 20px; }
+.thermal-observation h4 { font-size: 18px; }
+.thermal-observation p { font-size: 14px; line-height: 1.7; color: #bdcddd; margin: 12px 0; overflow-wrap: anywhere; }
+.thermal-observation .thermal-temperature { font-size: 28px; color: #f18258; }
+.thermal-temperature small { display: block; font-size: 13px; color: #bdcddd; }
+.thermal-facts { font-size: 14px; line-height: 1.6; }
+.thermal-facts > div { padding: 10px 0; border-top: 1px solid #303d4b; }
+.thermal-facts dt { color: #a8bacd; }
+.thermal-facts dd { margin: 3px 0 0; overflow-wrap: anywhere; }
+.thermal-table table { min-width: 610px; table-layout: auto; }
+.thermal-table th { text-align: right; }
+.thermal-table th:first-child { text-align: left; }
+.thermal-table tbody th { border-top: 1px solid #303d4b; }
+.thermal-table caption { text-align: left; padding: 12px 16px; font-size: 13px; line-height: 1.6; color: #a8bacd; }
+.thermal-periods > summary { cursor: pointer; padding: 18px 20px; font-size: 14px; line-height: 1.6; }
+@container (max-width: 700px) { .thermal-observation-grid { grid-template-columns: minmax(0, 1fr); padding: 14px; } }

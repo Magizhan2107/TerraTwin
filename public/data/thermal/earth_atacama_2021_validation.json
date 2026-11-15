@@ -1,0 +1,19 @@
+{
+  "conclusion": "PASS",
+  "normal_cli_conversion": "PASS without preprocessing or in-memory workaround",
+  "schema_and_submission_provenance_validation": "PASS",
+  "periods": 13,
+  "matching_fields": 2665,
+  "numeric_comparisons": 2535,
+  "numerical_differences": [],
+  "missing_fields": 0,
+  "missing_records": 0,
+  "unexpected_fields": 0,
+  "mismatched_fields": 0,
+  "unverified_fields": 0,
+  "all_exported_feature_properties_preserved": true,
+  "input_geometry_unchanged": true,
+  "tests_passed": 53,
+  "syntax_checks": "PASS",
+  "new_ee_exports": 0
+}
